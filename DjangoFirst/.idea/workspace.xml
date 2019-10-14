@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a03bdf12-c0ac-423a-960d-2b5215a85b38" name="Default Changelist" comment="commit">
+    <list default="true" id="a03bdf12-c0ac-423a-960d-2b5215a85b38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoFirst/re_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoFirst/re_example.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoFirst/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoFirst/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoFirst/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoFirst/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,7 +137,7 @@
       <updated>1571020006531</updated>
       <workItem from="1571020013251" duration="4658000" />
       <workItem from="1571033629353" duration="3967000" />
-      <workItem from="1571037652918" duration="1051000" />
+      <workItem from="1571037652918" duration="2147000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1571036167106</created>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571037369717</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="commit">
+      <created>1571038914996</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571038914996</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
