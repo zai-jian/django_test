@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a03bdf12-c0ac-423a-960d-2b5215a85b38" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DjangoFirst/re_example.py" afterDir="false" />
+    <list default="true" id="a03bdf12-c0ac-423a-960d-2b5215a85b38" name="Default Changelist" comment="commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoFirst/re_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoFirst/re_example.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,6 +65,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="zai-jian" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="django_test" />
+  </component>
   <component name="ProjectId" id="1SAx44IzYrInJaHptxpLcaERZoc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -78,7 +84,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Subversion" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -119,7 +125,7 @@
     </configuration>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\15274\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -129,7 +135,8 @@
       <option name="presentableId" value="Default" />
       <updated>1571020006531</updated>
       <workItem from="1571020013251" duration="4658000" />
-      <workItem from="1571033629353" duration="3643000" />
+      <workItem from="1571033629353" duration="3967000" />
+      <workItem from="1571037652918" duration="1051000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1571036167106</created>
@@ -152,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571036954658</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="commit">
+      <created>1571037369717</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571037369717</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +177,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
