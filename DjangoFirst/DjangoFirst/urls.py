@@ -19,6 +19,7 @@ from DjangoFirst.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',index),
-    re_path('say_hello/(?P<name>\w+)/',say_hello),
-    path('my_test/',my_test)
+    re_path('say/(?P<mouth>.+)/(?P<day>.+)/',say),
+    path('my_test/',my_test),
+    path('test/',test)
 ]
