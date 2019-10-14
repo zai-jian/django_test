@@ -21,5 +21,6 @@ urlpatterns = [
     path('index/',index),
     re_path('say/(?P<mouth>.+)/(?P<day>.+)/',say),
     path('my_test/',my_test),
-    path('test/',test)
+    path('test/',test),
+
 ]
