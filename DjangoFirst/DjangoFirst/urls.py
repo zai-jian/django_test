@@ -19,5 +19,6 @@ from DjangoFirst.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',index),
-    path('say_hello/',say_hello)
+    path('say_hello/',say_hello),
+    path('my_test/',my_test)
 ]
