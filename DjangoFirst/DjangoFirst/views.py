@@ -67,3 +67,16 @@ def list_page(request):
         {"name": "亚索", "sex": "男", "nickname": "疾风剑豪", 'url': "/static/images/ys.jpg "}
     ]
     return render_to_response("list01.html", locals())
+
+def shop(request):
+    city_list = [
+        {"name":"朝阳区", "src":"/static/img/shop-pic1.jpg", "style":0, "class": 0},
+        {"name": "朝阳区", "src": "/static/img/shop-pic2.jpg", "style": 0,"class": 0},
+        {"name": "朝阳区", "src": "/static/img/shop-pic3.jpg", "style": 1,"class": 0},
+        {"name": "朝阳区", "src": "/static/img/shop-pic4.jpg", "style": 0,"class": 0},
+        {"name": "朝阳区", "src": "/static/img/shop-pic5.jpg", "style": 0,"class": 0},
+        {"name": "朝阳区", "src": "/static/img/shop-pic6.jpg", "style": 1,"class": 0},
+
+    ]
+
+    return  render_to_response('shop.html', locals())

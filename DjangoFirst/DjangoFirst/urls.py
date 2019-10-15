@@ -24,5 +24,6 @@ urlpatterns = [
     path('test/',test),
     path('index_page/', index_page),
     path('func2/', func2),
-    path('list_page/', list_page)
+    path('list_page/', list_page),
+    path('shop/', shop)
 ]
