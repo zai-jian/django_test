@@ -25,5 +25,15 @@ urlpatterns = [
     path('index_page/', index_page),
     path('func2/', func2),
     path('list_page/', list_page),
-    path('shop/', shop)
+    path('shop/', shop),
+    path('shop_list1/', shop_list1),
+    path('shop_list2/', shop_list2),
+    path('shop_list3/', shop_list3),
+    path('shop_list4/', shop_list4),
+    path('shop_list5/', shop_list5),
+    path('shop_list6/', shop_list6),
+    path('shop_list7/', shop_list7),
+    path('shop_list8/', shop_list8),
+    path('shop_list9/', shop_list9),
+
 ]

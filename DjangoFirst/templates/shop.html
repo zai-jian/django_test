@@ -8,14 +8,14 @@
 	</head>
 	<body>
 		<div class="clearfix nav">
-			<a class="logo" href="javascript:;"></a>
+			<a class="logo" href="javascript:"></a>
 			<ul class="clearfix nav-wrap">
-				<li><a class="nav-item" href="index.html">首页</a></li>
-				<li><a class="nav-item" href="pinpai.html">品牌故事</a></li>
-				<li><a class="nav-item" href="meishi.html">美食系列</a></li>
-				<li><a class="nav-item nav-active" href="shop.html">店面展示</a></li>
-				<li><a class="nav-item" href="news.html">新闻资讯</a></li>
-				<li><a class="nav-item" href="about-us.html">关于我们</a></li>
+				<li><a class="nav-item" href="/shop_list2/">首页</a></li>
+				<li><a class="nav-item" href="/shop_list7/">品牌故事</a></li>
+				<li><a class="nav-item" href="/shop_list4/">美食系列</a></li>
+				<li><a class="nav-item nav-active" href="/shop_list8/">店面展示</a></li>
+				<li><a class="nav-item" href="/shop_list5/">新闻资讯</a></li>
+				<li><a class="nav-item" href="/shop_list1/">关于我们</a></li>
 			</ul>
 		</div>
 		
@@ -25,14 +25,14 @@
 		        <span index="2"></span>
 		        <span index="3"></span>
 		    </div>
-		    <a href="javascript:;" id="prev" class="arrow"><img src="img/l.png"/></a>
-		    <a href="javascript:;" id="next" class="arrow"><img src="img/r.png"/></a>
+		    <a href="javascript:" id="prev" class="arrow"><img src="/static/img/l.png"/></a>
+		    <a href="javascript:" id="next" class="arrow"><img src="/static/img/r.png"/></a>
 		</div>
 		
 		<ul class="breadnav clearfix">
-			<li class="bnav-item"><a href="index.html">首页</a></li>
+			<li class="bnav-item"><a href="/shop_list2">首页</a></li>
 			<li class="bnav-item">&lt;</li>
-			<li class="bnav-item"><a href="shop.html">店面展示</a></li>
+			<li class="bnav-item"><a href="/shop_list8/">店面展示</a></li>
 			<li class="bnav-item">&lt;</li>
 			<li class="bnav-item"><a href="javascript:;">北京店</a></li>
 		</ul>
@@ -54,14 +54,14 @@
 			<div class="table-pic table-show clearfix">
                 {% for i in city_list %}
                     {% ifequal i.style 0 %}
-                        <a href="shop-con.html" class="shop-wrap shop-right">
+                        <a href="/shop_list9/" class="shop-wrap shop-right">
                             <span class="shop-pic">
                                 <img src="{{ i.src }}" alt="" />
                             </span>
                             <p class="shop-tit">{{ i.name }}</p>
                         </a>
                     {% else %}
-                        <a href="shop-con.html" class="shop-wrap">
+                        <a href="/shop_list9/" class="shop-wrap">
                             <span class="shop-pic">
                                 <img src="{{ i.src }}" alt="" />
                             </span>
@@ -71,54 +71,54 @@
                 {% endfor  %}
 			</div>
 			<div class="table-pic clearfix">
-				<a href="shop-con.html" class="shop-wrap">
+				<a href="/shop_list9/" class="shop-wrap">
 					<span class="shop-pic">
-						<img src="img/shop-pic3.jpg" alt="" />
+						<img src="/static/img/shop-pic3.jpg" alt="" />
 					</span>
 					<p class="shop-tit">上海朝阳区店</p>
 				</a>
 			</div>
 			<div class="table-pic clearfix">
-				<a href="shop-con.html" class="shop-wrap shop-right">
+				<a href="/shop_list9/" class="shop-wrap shop-right">
 					<span class="shop-pic">
 						<img src="img/shop-pic4.jpg" alt="" />
 					</span>
 					<p class="shop-tit">厦门朝阳区店</p>
 				</a>
-				<a href="shop-con.html" class="shop-wrap">
+				<a href="/shop_list9/" class="shop-wrap">
 					<span class="shop-pic">
-						<img src="img/shop-pic6.jpg" alt="" />
+						<img src="/static/img/shop-pic6.jpg" alt="" />
 					</span>
 					<p class="shop-tit">厦门朝阳区店</p>
 				</a>
 			</div>
 			<div class="table-pic clearfix">
-				<a href="shop-con.html" class="shop-wrap shop-right">
+				<a href="/shop_list9/" class="shop-wrap shop-right">
 					<span class="shop-pic">
-						<img src="img/shop-pic5.jpg" alt="" />
+						<img src="/static/img/shop-pic5.jpg" alt="" />
 					</span>
 					<p class="shop-tit">广州朝阳区店</p>
 				</a>
 			</div>
 			<div class="table-pic clearfix">
-				<a href="shop-con.html" class="shop-wrap shop-right">
+				<a href="/shop_list9/" class="shop-wrap shop-right">
 					<span class="shop-pic">
-						<img src="img/shop-pic2.jpg" alt="" />
+						<img src="/static/img/shop-pic2.jpg" alt="" />
 					</span>
 					<p class="shop-tit">深圳朝阳区店</p>
 				</a>
 			</div>
 			<div class="table-pic clearfix">
-				<a href="shop-con.html" class="shop-wrap shop-right">
+				<a href="/shop_list9/" class="shop-wrap shop-right">
 					<span class="shop-pic">
-						<img src="img/shop-pic1.jpg" alt="" />
+						<img src="/static/img/shop-pic1.jpg" alt="" />
 					</span>
 					<p class="shop-tit">朝阳区店</p>
 				</a>
 			</div>
 			<ul class="shop-paging clearfix">
-				<li><a href="shop-con.html" class="pag-item">&lt;</a></li>
-				<li><a href="shop-con.html" class="pag-item pag-active">1</a></li>
+				<li><a href="/shop_list9/" class="pag-item">&lt;</a></li>
+				<li><a href="/shop_list9/" class="pag-item pag-active">1</a></li>
 				<li><a href="javascript:;" class="pag-item">2</a></li>
 				<li><a href="javascript:;" class="pag-item">3</a></li>
 				<li><a href="javascript:;" class="pag-item">4</a></li>
@@ -131,22 +131,22 @@
 				<p class="foot-tit">友情链接</p>
 				<ul class="foot-link clearfix">
 					<li class="foot-pic">
-						<a href="javascript:;"><img src="img/link6.png"/></a>
+						<a href="javascript:;"><img src="/static/img/link6.png"/></a>
 					</li>
 					<li class="foot-pic">
-						<a href="javascript:;"><img src="img/link5.png"/></a>
+						<a href="javascript:;"><img src="/static/img/link5.png"/></a>
 					</li>
 					<li class="foot-pic">
-						<a href="javascript:;"><img src="img/link4.png"/></a>
+						<a href="javascript:;"><img src="/static/img/link4.png"/></a>
 					</li>
 					<li class="foot-pic">
-						<a href="javascript:;"><img src="img/link3.png"/></a>
+						<a href="javascript:;"><img src="/static/img/link3.png"/></a>
 					</li>
 					<li class="foot-pic">
-						<a href="javascript:;"><img src="img/link2.png"/></a>
+						<a href="javascript:;"><img src="/static/img/link2.png"/></a>
 					</li>
 					<li class="foot-pic">
-						<a href="javascript:;"><img src="img/link1.png"/></a>
+						<a href="javascript:;"><img src="/static/img/link1.png"/></a>
 					</li>
 				</ul>
 				<div class="copyright">
@@ -159,7 +159,7 @@
 		
 	</body>
 	<!--jq调用-->
-	<script src="js/jquery-1.11.0.js" type="text/javascript"></script>
+	<script src="/static/js/jquery-1.11.0.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		//导航当前项切换	
 		$(".nav-item").click(function(){

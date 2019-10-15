@@ -78,5 +78,22 @@ def shop(request):
         {"name": "朝阳区", "src": "/static/img/shop-pic6.jpg", "style": 1,"class": 0},
 
     ]
-
     return  render_to_response('shop.html', locals())
+def shop_list1(request):
+    return render_to_response("about-us.html", locals())
+def shop_list2(request):
+    return render_to_response("index.html",locals())
+def shop_list3(request):
+    return render_to_response("meishi-con.html",locals())
+def shop_list4(request):
+    return render_to_response("meishi.html",locals())
+def shop_list5(request):
+    return render_to_response("news.html",locals())
+def shop_list6(request):
+    return render_to_response("news-con.html",locals())
+def shop_list7(request):
+    return render_to_response("pinpai.html",locals())
+def shop_list8(request):
+    return render_to_response("shop.html",locals())
+def shop_list9(request):
+    return render_to_response("shop-con.html",locals())
