@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p{
+            color:palegreen;
+            text-align: center;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>商品主页</th>
+            <th>我的订单</th>
+            <th>我的信息</th>
+        </tr>
+        {% for i in test_list %}
+        <tr>
+            <td>{{ i.商品主页 }}</td>
+            <td>{{ i.我的订单 }}</td>
+            <td>{{ i.我的信息 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

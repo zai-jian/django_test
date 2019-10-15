@@ -22,5 +22,7 @@ urlpatterns = [
     re_path('say/(?P<mouth>.+)/(?P<day>.+)/',say),
     path('my_test/',my_test),
     path('test/',test),
-
+    path('index_page/', index_page),
+    path('func2/', func2),
+    path('list_page/', list_page)
 ]

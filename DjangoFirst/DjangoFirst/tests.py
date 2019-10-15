@@ -9,4 +9,3 @@ for i in range(1, 10):
 string += '</table> '
 print(random.choice(list1))
 
-

@@ -1,6 +1,9 @@
 from django.http import HttpResponse
+from django.template.loader import get_template
+from django.shortcuts import render_to_response
 import time
 import random
+
 list1 = ['red','blue','green','orange','yellow','pink','purple']
 
 def func():
@@ -8,7 +11,6 @@ def func():
         for j in  range(1,i+1):
             print(i*j,end="  ")
         print()
-
 
 def index(request):
     return HttpResponse("hello world")
@@ -22,7 +24,6 @@ def my_test(request):
     return HttpResponse("<span style=color:red>再渐</span>")
 
 def test(request):
-
     string = "<table border=1>"
     for i in range(1, 10):
         string += '<tr >'
@@ -30,6 +31,39 @@ def test(request):
             string += '<td style =background:'+random.choice(list1) +'> ' + str(j) + '*' + str(i) +'='+ str(i * j) + '</td>'
         string += '</tr>'
     string += '</table>'
+    string += "<table border=1>"
+    for i in range(1, 10):
+        string += '<tr >'
+        for j in range(1, i + 1):
+            string += '<td style =background:'+random.choice(list1) +'> ' + str(j) + '*' + str(i) +'='+ str(i * j) + '</td>'
+        string += '</tr>'
+    string += '</table>'
     return HttpResponse(string)
+def index_page(request):
+    template = get_template("index.html")
+    response = template.render(
+        {
+            "name":'didi'
+        }
+    )
+    return HttpResponse(response)
 
+def func2(request):
+    test_list = [
+        {"商品主页": "农夫山泉",  "我的订单": "无", "我的信息":"老王"},
+        {"商品主页": "百岁山", "我的订单": "无", "我的信息": "老刘"},
+        {"商品主页": "哇哈哈", "我的订单": "无", "我的信息": "老赵"},
+        {"商品主页": "旺仔", "我的订单": "无",  "我的信息": "老钱"},
+        {"商品主页": "纯净水", "我的订单": "无", "我的信息": "老孙"}
+    ]
+    return render_to_response("index.html",locals())
 
+def list_page(request):
+    legend_list = [
+        {"name":"瑞文",  "sex": "女", "nickname": "放逐之刃", 'url':"/static/images/rv.jpg"},
+        {"name": "艾克", "sex": "男", "nickname": "时间刺客", 'url': "/static/images/aik.jpg "},
+        {"name": "提莫", "sex": "男", "nickname": "迅捷斥候", 'url': " /static/images/tm.jpg"},
+        {"name": "李青", "sex": "男", "nickname": "盲僧", 'url': " /static/images/lq.jpg"},
+        {"name": "亚索", "sex": "男", "nickname": "疾风剑豪", 'url': "/static/images/ys.jpg "}
+    ]
+    return render_to_response("list01.html", locals())
