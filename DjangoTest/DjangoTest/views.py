@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response
-
+from News.models import *
 
 def func(request):
-    return render_to_response()
+    list1 = New.objects.all()
+    return render_to_response('demo.html', locals())
