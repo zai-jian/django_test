@@ -5,10 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-    {% for i in list1 %}
-        <h1>{{ i.id}}</h1>
-        <h1>{{ i.content }}</h1>
-        <h1>{{ i.title }}</h1>
+
+    {% for ed in news_list %}
+        <p>{{ ed.id }} {{ ed.title }} {{ ed.content }}</p>
     {% endfor %}
+    {% for ed in news_list2 %}
+        <p>{{ ed.id }} {{ ed.title }} {{ ed.content }}</p>
+    {% endfor %}
+    {{ group_list }}
 </body>
 </html>

@@ -26,5 +26,5 @@ class New(models.Model):
     # models.SET_DEFAULT 设置默认值，比如：删除作者，书的作者为佚名
     editor_id = models.ManyToManyField(to=Editor)
     def __str__(self):
-        return self.content
+        return self.title
 

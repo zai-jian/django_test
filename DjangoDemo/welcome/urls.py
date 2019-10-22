@@ -1,4 +1,4 @@
-"""DjangoTest URL Configuration
+"""DjangoDemo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,12 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import *
-from DjangoTest.views import *
+from django.urls import path
+from . import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('demo/', func),
-    path('addnewtype/', add_new_type),
-    path('addnew/', add_new),
-    path('select/',selectExample)
+    path('', views.index, name='index'),
 ]
