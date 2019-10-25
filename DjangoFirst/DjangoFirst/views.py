@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.template.loader import get_template
 from django.shortcuts import render_to_response
-import time
+from django.views import View
+import time, json
 import random
 
 list1 = ['red','blue','green','orange','yellow','pink','purple']
