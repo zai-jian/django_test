@@ -1,0 +1,207 @@
+{% extends "buyer/base.html" %}
+{% load tags %}
+{% block title %}
+{% endblock %}
+{% block style %}
+    <script type="text/javascript" src="/static/buyer/js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="/static/buyer/js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/static/buyer/js/slide.js"></script>
+{% endblock %}
+
+{% block navbar_con %}
+{% endblock %}
+{% block content %}
+	<div class="center_con clearfix">
+		<ul class="subnav fl">
+			<li><a href="#model01" class="fruit">麻辣地带</a></li>
+			<li><a href="#model02" class="seafood">海鲜水产</a></li>
+			<li><a href="#model03" class="meet">猪牛羊肉</a></li>
+			<li><a href="#model04" class="egg">禽类蛋品</a></li>
+			<li><a href="#model05" class="vegetables">新鲜蔬菜</a></li>
+			<li><a href="#model06" class="ice">速冻食品</a></li>
+		</ul>
+		<div class="slide fl">
+			<ul class="slide_pics">
+				<li><img src="/static/buyer/images/slide.jpg"  alt="幻灯片"></li>
+				<li><img src="/static/buyer/images/slide02.jpg" alt="幻灯片"></li>
+				<li><img src="/static/buyer/images/slide03.jpg" alt="幻灯片"></li>
+				<li><img src="/static/buyer/images/slide04.jpg" alt="幻灯片"></li>
+			</ul>
+			<div class="prev"></div>
+			<div class="next"></div>
+			<ul class="points"></ul>
+		</div>
+		<div class="adv fl">
+			<a href="#"><img src="/static/buyer/images/adv01.jpg"></a>
+			<a href="#"><img src="/static/buyer/images/adv02.jpg"></a>
+		</div>
+	</div>
+{% for t in type_list %}
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model01">{{t.name}}</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				<a href="#">{{message|uper}}</a>
+				<a href="#">加州提子</a>
+				<a href="#">亚马逊牛油果</a>
+			</div>
+			<a href="/buyer/goods_list/?id={{ t.id }}" class="goods_more fr" id="fruit_more">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/{{t.picture}}"></div>
+			<ul class="goods_list fl">
+                {% for goods in t.goods_set.all|get_four %}
+                {% ifequal goods.statue 1 %}
+				<li>
+					<h4><a href="/buyer/goods/{{ goods.id }}">{{goods.name}}</a></h4>
+					<a href="/buyer/goods/{{ goods.id }}"><img src="/static/{{ goods.picture }}"></a>
+					<div class="prize">¥ {{goods.price}}</div>
+				</li>
+                {% else %}
+                {% endifequal %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+    {% endfor %}
+
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model05">麻辣地带</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				<a href="#">麻辣锅</a>
+				<a href="#">鸳鸯锅</a>
+				<a href="#">九宫格</a>
+			</div>
+			<a href="#" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/buyer/images/火锅0.jpg"></div>
+			<ul class="goods_list fl">
+				<li>
+					<h4><a href="#">高汤麻辣</a></h4>
+					<a href="#"><img src="/static/buyer/images/火锅1.jpg"></a>
+					<div class="prize">¥ 58.00</div>
+				</li>
+				<li>
+					<h4><a href="#">必点菜品</a></h4>
+					<a href="#"><img src="/static/buyer/images/火锅2.jpg"></a>
+					<div class="prize">¥ 198.00</div>
+				</li>
+				<li>
+					<h4><a href="#">鸳鸯锅</a></h4>
+					<a href="#"><img src="/static/buyer/images/火锅3.jpg"></a>
+					<div class="prize">¥ 88.00</div>
+				</li>
+				<li>
+					<h4><a href="#">成都人气</a></h4>
+					<a href="#"><img src="/static/buyer/images/火锅4.jpg"></a>
+					<div class="prize">¥ 98.00</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model06">咔滋咔滋</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				<a href="#">香脆鸡排</a>
+				<a href="#">芝士夹心</a>
+				<a href="#">奥尔良烤鸡排</a>
+			</div>
+			<a href="#" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/buyer/images/鸡排0.jpg"></div>
+			<ul class="goods_list fl">
+				<li>
+					<h4><a href="#">奥尔良鸡排</a></h4>
+					<a href="#"><img src="/static/buyer/images/鸡排1.jpg"></a>
+					<div class="prize">¥ 18.00</div>
+				</li>
+				<li>
+					<h4><a href="#">芝士夹心</a></h4>
+					<a href="#"><img src="/static/buyer/images/鸡排2.jpg"></a>
+					<div class="prize">¥ 22.00</div>
+				</li>
+				<li>
+					<h4><a href="#">黑胡椒风情</a></h4>
+					<a href="#"><img src="/static/buyer/images/鸡排3.jpg"></a>
+					<div class="prize">¥ 25.00</div>
+				</li>
+				<li>
+					<h4><a href="#">能量套餐</a></h4>
+					<a href="#"><img src="/static/buyer/images/鸡排4.jpg"></a>
+					<div class="prize">¥ 20.00</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+    <div class="list_model">
+		<div class="list_title clearfix">
+			<h3 class="fl" id="model04">舌尖的肉</h3>
+			<div class="subtitle fl">
+				<span>|</span>
+				<a href="#">西冷牛排</a>
+				<a href="#">菲力牛排</a>
+				<a href="#">T骨牛排</a>
+			</div>
+			<a href="#" class="goods_more fr">查看更多 ></a>
+		</div>
+
+		<div class="goods_con clearfix">
+			<div class="goods_banner fl"><img src="/static/buyer/images/牛排0.jpg"></div>
+			<ul class="goods_list fl">
+				<li>
+					<h4><a href="#">红酒牛排</a></h4>
+					<a href="#"><img src="/static/buyer/images/牛排1.jpg"></a>
+					<div class="prize">¥ 78.00</div>
+				</li>
+				<li>
+					<h4><a href="#">T骨牛排</a></h4>
+					<a href="#"><img src="/static/buyer/images/牛排2.jpg"></a>
+					<div class="prize">¥ 88.00</div>
+				</li>
+				<li>
+					<h4><a href="#">牛排拼盘</a></h4>
+					<a href="#"><img src="/static/buyer/images/牛排3.jpg"></a>
+					<div class="prize">¥ 218.00</div>
+				</li>
+				<li>
+					<h4><a href="#">牛排薯饼</a></h4>
+					<a href="#"><img src="/static/buyer/images/牛排4.jpg"></a>
+					<div class="prize">¥ 28.00</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+{% endblock %}
+{% block script %}
+<script type="text/javascript" src="/static/buyer/js/slide.js"></script>
+	<script type="text/javascript">
+		BCSlideshow('focuspic');
+		var oFruit = document.getElementById('fruit_more');
+		var oShownum = document.getElementById('show_count');
+
+		var hasorder = localStorage.getItem('order_finish');
+
+		if(hasorder)
+		{
+			oShownum.innerHTML = '2';
+		}
+
+		oFruit.onclick = function(){
+			window.location.href = 'list.html';
+		}
+	</script>
+{% endblock %}

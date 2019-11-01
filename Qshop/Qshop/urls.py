@@ -19,4 +19,8 @@ from django.urls import path,include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Shop/',include("Shop.urls")),
+    path('celery/',include("CeleryTask.urls")),
+    path('ckeditor/',include("ckeditor_uploader.urls")),
+    path('buyer/',include("buyer.urls")),
+    path('student/',include("student.urls"))
 ]

@@ -1,0 +1,122 @@
+{% extends "shop/base.html" %}
+
+{% block title %}
+    商品列表页
+{% endblock %}
+
+{% block head %}
+    <script src="/static/shop/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/shop/js/vue.min.js"></script>
+    <script src="/static/shop/js/vue-resource.js"></script>
+{% endblock %}
+
+{% block label %}
+    <a class="btn btn-info" href="/Shop/good/0/">添加商品</a>
+{% endblock %}
+
+{% block content %}
+    {% verbatim myblock %}
+    <div class="row" id="goods_table">
+        <div class="input-group">
+            <input type="text" id="keywords" class="form-control bg-light border-0 small" placeholder="商品检索">
+            <div class="input-group-append">
+                <button class="btn btn-google" type="button" v-on:click="get_keywords_data()">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+
+            </div>
+
+        </div>
+        <table class="table dataTable" >
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+            <th>出厂日期</th>
+            <th>保质期</th>
+            <th>操作</th>
+        </tr>
+        <tr v-for="g in goods_list">
+            <td><a v-bind:href="'/Shop/show_good/'+g.id+'/'">{{ g.name }}</a></td>
+            <td>{{ g.price }}</td>
+            <td>{{ g.number }}</td>
+            <td>{{ g.production }}</td>
+            <td>{{ g.safe_date }}</td>
+            <td>
+                <a class="btn btn-outline-danger" style="color: white;">下架</a>
+            </td>
+        </tr>
+        </table>
+        <div class="dataTables_paginate paging_simple_numbers">
+            <ul class="pagination">
+                <li class="paginate_button page-item" v-for="page in page_range">
+                    <a class="page-link" v-on:click="get_page_data(page)">
+                        {{ page }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {% endverbatim myblock %}
+{% endblock %}
+{% block script %}
+    <script>
+        Vue.use(VueResource);
+        var vue = new Vue(
+            {
+                el:"#goods_table",
+                data:{
+                   "goods_list":[],
+                    "page_range":[]
+                },//具体要绑定的数据
+                created:function() {
+                    this.$http.get("/Shop/Goods/").then(
+                        function(data){
+                            this.goods_list = data["data"]["data"];
+                            this.page_range = data["data"]["page_range"];
+                            console.log(data["data"]["page_range"])
+                        },
+                        function (error) {
+                            console.log(error)
+                        }
+                    )
+                },
+                methods:{
+                    say_hello:function (args) {
+                        alert(args)
+                    },
+                    get_page_data:function(page){
+                        var url="/Shop/Goods/?Page="+page;
+                        console.log(url);
+                        this.$http.get(url).then(
+                            function(data){
+                                this.goods_list=data["data"]["data"];
+                                this.page_range = data["data"]["page_range"];
+                                console.log(data)
+                            },
+                            function (error) {
+                                console.log(error)
+                            }
+                        )
+                    },
+                    get_keywords_data:function () {
+                        var keywords = $("#keywords").val();//获取input的值
+                        var url = "/Shop/Goods/?keywords="+keywords;//将值传递给url发起请求
+                        this.$http.get(url).then(
+                            function (data) {
+                                this.goods_list = data["data"]["data"];
+                                this.page_range = data["data"]["page_range"];
+                            },//处理接收的数据
+                            function (error) {
+                                console.log(error)
+                            }
+                        )
+
+                    }
+
+                }
+            }
+        )
+    </script>
+{% endblock %}

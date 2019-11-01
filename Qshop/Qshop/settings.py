@@ -39,9 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Shop',
     'Quser',
+    'djcelery',
+    'ckeditor',
+    'ckeditor_uploader',
+    'buyer',
+    'student'
 ]
 
 MIDDLEWARE = [
+    'student.middleware.TimeItMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -118,7 +124,6 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
    os.path.join(BASE_DIR,'static')
@@ -128,3 +133,25 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'static')
 
 # STATIC_ROOT = os.path.join(BASE_DIR,'static')
+
+#celery框架异步任务配置
+import djcelery
+
+djcelery.setup_loader()
+
+BROKER_URL = "redis://127.0.0.1:6379/1"
+CELERY_IMPORTS = ('CeleryTask.tasks')
+CELERY_TIMEZONE = 'Asia/Shanghai'
+CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+from celery.schedules import timedelta
+
+CELERYBEAT_SCHEDULE = {
+    u"测试任务":{
+        "task":"CeleryTask.tasks.add",
+        "schedule":timedelta(seconds=2),
+    }
+}
+
+CKEDITOR_UPLOAD_PATH = "upload"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+PAGE_SIZE = 3
