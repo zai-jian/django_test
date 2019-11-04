@@ -1,5 +1,5 @@
 from django.urls import path,re_path
-from buyer.views import goods_list, index, goods, login, add_car, cart, register
+from buyer.views import goods_list, index, goods, login, add_car, cart, register, place_order
 
 urlpatterns = [
     re_path(r"^$",index),
@@ -9,6 +9,7 @@ urlpatterns = [
     path('login/',login),
     path('add_car/', add_car),
     path('cart/',cart),
-    path('register/',register)
+    path('register/',register),
+    path('place_order/',place_order),
 
 ]

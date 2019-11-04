@@ -4,7 +4,7 @@ from django.shortcuts import render
 from Quser.views import valid_user, set_password, add_user
 from Shop.models import *
 
-from buyer.models import BuyCar
+from buyer.models import BuyCar, Order_info
 
 
 def login_valid(fun):
@@ -153,6 +153,48 @@ def cart(request):
     email = request.COOKIES.get("email")
     goods_list = BuyCar.objects.filter(car_user=email)
     count = len(goods_list)
-    return render(request,"buyer/cart.html", locals())
+    if request.method == "POST":  # 为了接收提交订单
+        # 对订单的处理
+        data = request.POST
+        post_data = []
+        # 过滤所有选择的商品的id和购买数量
+        for key in data:
+            if key.startswith("check"):
+                id = key.split("_")[1]
+                num = "number_%s" % id
+                number = data[num]
+                post_data.append((id, number))
+        # 保存订单主表
+        p_order = Pay_order()
+        p_order.order_id = str(time.time()).replace(".", "")
+        p_order.order_number = len(post_data)
+        p_order.order_user = Quser.objects.get(email=request.COOKIES.get("email"))
+        p_order.save()  # 这里没有保存总价
+
+        order_total = 0  # 总价计算
+        # 循环保存当前订单对应的订单详情
+        for id, number in post_data:
+            number = int(number)
+            goods = Goods.objects.get(id=int(id))
+            o_info = Order_info()
+            o_info.order_id = p_order
+            o_info.goods_name = goods.name
+            o_info.goods_number = number
+            o_info.goods_price = goods.price
+            o_info.goods_total = number * goods.price
+            o_info.goods_picture = goods.picture.url
+            o_info.order_store = goods.goods_store
+            o_info.save()
+            order_total += o_info.goods_total
+        p_order.order_total = order_total  # 保存当前订单的总价
+        p_order.save()
+        return HttpResponseRedirect("/buyer/place_order/")
+
+    return render(request, "buyer/cart.html", locals())
+
+def place_order(request):
+    return render(request, "buyer/place_order.html")
+
+
 
 

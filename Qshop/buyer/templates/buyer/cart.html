@@ -17,7 +17,7 @@
 
     {% for goods_data in goods_list %}
     <ul class="cart_list_td clearfix">
-		<li class="col01"><input class="goods_check" type="checkbox" name="" checked></li>
+		<li class="col01"><input class="goods_check" type="checkbox" name="check_{{ goods_data.id }}" checked></li>
 		<li class="col02"><img src="/static/{{goods_data.goods_picture }}"></li>
 		<li class="col03">{{goods_data.goods_name}}<br><em>{{goods_data.goods_price}}元/500g</em></li>
 		<li class="col04">500g</li>
@@ -25,7 +25,7 @@
 		<li class="col06">
 			<div class="num_add">
 				<a href="javascript:;" class="add fl">+</a>
-				<input type="text" class="num_show fl" value="1">
+				<input type="text" class="num_show fl" value="{{ goods_data.goods_number }}" name="number_{{ goods_data.id }}">
 				<a href="javascript:;" class="minus fl">-</a>
 			</div>
 		</li>
@@ -34,16 +34,17 @@
 	</ul>
     {% endfor %}
 	<ul class="settlements">
-		<li class="col01"><input id="all_check" type="checkbox" name="" checked></li>
+		<li class="col01"><input id="all_check" type="checkbox" name="" checked=""></li>
 		<li class="col02">全选</li>
 		<li class="col03">合计(不含运费)：<span>¥</span><em>42.60</em><br>共计<b>{{ count }}</b>件商品</li>
 		<li class="col04"><a href="/buyer/place_order/">去结算</a></li>
 	</ul>
 {% endblock %}
 {% block script %}
-    <script src="/buyer/static/buyer/js/jquery-ui.min.js"></script>
-    <script src="/buyer/static/buyer/js/jquery.cookie.js"></script>
-    <script src="/buyer/static/buyer/js/jquery-1.12.4.min.js"></script>
+    <script src="/static/buyer/js/jquery-1.12.4.min.js"></script>
+    <script src="/static/buyer/js/jquery-ui.min.js"></script>
+    <script src="/static/buyer/js/jquery.cookie.js"></script>
+
     <script>
         $("#all_check").click(
             function () {
@@ -59,13 +60,12 @@
                 $(this).click(
                     function () {
                         if (!this.checked){
-                            $(".goods_check").prop("checked", false)
+                            $("#all_check").prop("checked", false)
                         }
-
                     }
                 )
 
             }
-        )
+        );
     </script>
 {% endblock %}
