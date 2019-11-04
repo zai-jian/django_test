@@ -1,4 +1,11 @@
 {% extends "buyer/base.html"%}
+{% block style %}
+    	<script src="/static/buyer/js/jquery-1.12.4.min.js"></script>
+    	<script src="/static/buyer/js/jquery-ui.min.js"></script>
+    	<script src="/static/buyer/js/jquery.cookie.js"></script>
+    	<script src="/static/buyer/js/slide.js"></script>
+    	<script src="/static/buyer/js/register.js"></script>
+{% endblock %}
 {% block title %}
     商品列表
 {% endblock %}
@@ -39,12 +46,12 @@
                 {% if goods_list %}
                 {% for goods in goods_list %}
 				<li>
-					<a href="/Buyer/goods/{{ goods.id }}"><img src="/static/{{goods.picture}}"></a>
-					<h4><a href="/Buyer/goods/{{ goods.id }}">{{goods.name}}</a></h4>
+					<a href="/buyer/goods/{{ goods.id }}"><img src="/static/{{goods.picture}}"></a>
+					<h4><a href="/buyer/goods/{{ goods.id }}">{{goods.name}}</a></h4>
 					<div class="operate">
 						<span class="prize">￥{{goods.price}}</span>
 						<span class="unit">{{goods.price}}/500g</span>
-						<a href="#" class="add_goods" title="加入购物车"></a>
+						<a href="#" class="add_goods" title="加入购物车" onclick="add_car(this.id)" id="{{ goods.id }}"></a>
 					</div>
 				</li>
                 {% endfor %}
@@ -54,7 +61,7 @@
 
             </ul>
 			<div class="pagenation">
-				<a href="#"><上一页</a>
+				<a href="#">上一页</a>
 				<a href="#" class="active">1</a>
 				<a href="#">2</a>
 				<a href="#">3</a>
@@ -64,4 +71,32 @@
 			</div>
         </div>
 	</div>
+
 {% endblock %}
+{% block script %}
+    <script>
+    function add_car(obj) {
+        var post_data = {"goods_id": obj,"csrfmiddlewaretoken": "{{ csrf_token }}"};
+        console.log(post_data);
+        $.ajax(
+            {
+                url: "/buyer/add_car/",
+                type: "post",
+                data: post_data,
+                success: function (data) {
+                    alert(data["data"])
+                },
+                error: function (error) {
+                    console.log(error)
+                }
+            }
+        )
+    }
+</script>
+{% endblock %}
+
+
+
+
+
+

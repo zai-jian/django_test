@@ -18,7 +18,7 @@
 			<div class="login_form fr">
 				<div class="login_title clearfix">
 					<h1>用户登录</h1>
-					<a href="#">立即注册</a>
+					<a href="/buyer/register">立即注册</a>
 				</div>
 				<div class="form_input">
 
@@ -28,13 +28,13 @@
 						<div class="user_error">输入错误</div>
 						<input type="password" name="pwd" class="pass_input" placeholder="请输入密码">
 						<div class="pwd_error">输入错误</div>
-                        <input type="hidden" name="referer" value="{{ get_referer }}"/>
+                        <input type="hidden" name="referer" value="{{ referer }}"/>
 						<div class="more_input clearfix">
 							<input type="checkbox" name="">
 							<label>记住用户名</label>
 							<a href="#">忘记密码</a>
 						</div>
-						<input type="submit" name="" value="登录" class="input_submit">
+						<input type="submit" name="" value="登录" class="input_submit" src="/buyer/index/">
 					</form>
 				</div>
 			</div>
